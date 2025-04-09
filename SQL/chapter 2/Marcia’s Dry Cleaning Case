@@ -1,0 +1,15 @@
+A.  select * FROM CUSTOMER
+B.  select LastName, FirstName, Phone from CUSTOMER;
+c.  select LastName, FirstName, Phone From CUSTOMER where FirstName like "Nikki";
+d.  select LastName, FirstName , Phone ,DateIn, DateOut from CUSTOMER, INVOICE where TotalAmount > 100;
+e.  select LastName, FirstName, Phone from CUSTOMER where FirstName like "B%";
+f.  select LastName, FirstName from CUSTOMER where LastName LIKE "%cat%";
+g.  select LastName, FirstName, Phone from CUSTOMER where Phone like "%_23%"
+h.  select min(TotalAmount) AS MinmumTotal, max(TotalAmount) AS MaximumTotal from INVOICE;
+i.  select sum(TotalAmount) / count(TotalAmount) from INVOICE ;
+j.  select COUNT("CUSTOMER") from CUSTOMER;
+k.1,select LastName, FirstName from CUSTOMER group by FirstName; (k.2) select LastName, FirstName from CUSTOMER group by LastName;
+l.  select LastName, FirstName, COUNT(*) AS CustomerCount FROM CUSTOMER GROUP BY LastName;
+m.  select LastName, FirstName, Phone from CUSTOMER, INVOICE where TotalAmount > 100 order by FirstName;
+m.1 select LastName, FirstName, Phone from CUSTOMER, INVOICE where TotalAmount > 100 order by LastName;
+n.  select LastName, FirstName, Phone from CUSTOMER,INVOICE where TotalAmount>100;

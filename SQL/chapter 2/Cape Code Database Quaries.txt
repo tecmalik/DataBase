@@ -1,0 +1,62 @@
+// class work
+// 2.17 . 
+select SKU, SKU_Description from INVENTORY;
+// 2.18.   
+select SKU_Description, SKU from INVENTORY;
+// 2. 19.  
+select WarehouseID from INVENTORY;
+// 2. 20.   
+select distinct WarehouseID from INVENTORY;
+// 2. 21
+select WarehouseID, SKU, SKU_Description , QuantityOnHand , QuantityOnOrder from INVENTORY;
+//2. 22
+select * from INVENTORY;
+//2. 23
+select distinct QuantityOnHand from INVENTORY where QuantityOnHand > 0;
+//2.24
+select distinct SKU, SKU_Description from INVENTORY where QuantityOnHand =
+0;
+2.25
+select distinct SKU,SKU_Description from INVENTORY where QuantityOnHand = 0
+ order by WarehouseId asc;
+ //2.26
+ select distinct SKU,SKU_Description from INVENTORY where QuantityOnHand > 0 order by WarehouseId asc, SKU asc;
+//2,27 
+select distinct SKU,SKU_Description,WarehouseID from INVENTORY where QuantityOnHand = 0 and QuantityOnOrder > 0 order by WarehouseId desc, SKU asc;
+
+//2.28
+select distinct SKU,SKU_Description,WarehouseID from INVENTORY where QuantityOnHand = 0 and QuantityOnOrder = 0 order by WarehouseId desc, SKU asc;
+
+//2.29
+select distinct SKU,SKU_Description,WarehouseID from INVENTORY where QuantityOnHand > 1 and QuantityOnOrder < 10;
+
+//2.30
+select distinct SKU,SKU_Description,WarehouseID ,QuantityOnHand from INVENTORY where QuantityOnHand between 1 and 10;
+//2.31
+ select distinct SKU , SKU_Description from INVENTORY where SKU_description like 'Half-Dome%';
+//2.32
+select distinct SKU , SKU_Description from INVENTORY where SKU_description like '%climb%';
+//2.33
+select distinct SKU , SKU_Description from INVENTORY where SKU_description like '__d%';
+2.34
+select sum(QuantityOnHand) AS OrderSum,  min(QuantityOnHand) AS Min_Quantity, Max(QuantityOnHand) AS MaxQuantity, avg(QuantityOnHand) AS avg_Quantity, sum(QuantityOnHand) AS Total_Quantity, count(QuantityOnHand) AS
+Count_Quantity FROM INVENTORY;
+//2.36
+SELECT DISTINCT WarehouseID, SUM(QuantityOnHand) AS TotalItemsOnHand FROM INVENTORY GROUP BY WarehouseID;
+//2.37
+SELECT WarehouseID, SUM(CASE WHEN QuantityOnHand < 3 THEN QuantityOnHand ELSE 0 END) AS TotalItemsOnHandLT3
+FROM INVENTORY
+GROUP BY WarehouseID
+HAVING COUNT(CASE WHEN QuantityOnHand < 3 THEN 1 END) < 2  -- Filter for warehouses with less than 2 SKUs with less than 3 items
+ORDER BY TotalItemsOnHandLT3 DESC;
+// 2.38
+
+
+
+
+
+
+
+
+
+
