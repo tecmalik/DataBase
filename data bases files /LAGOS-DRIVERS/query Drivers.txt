@@ -1,0 +1,5 @@
+1. create table topRatedDrivers AS select DriverID,Name,Rating,TotalRides From Drivers order by TotalRides DESc LIMIT 5; 
+Query OK, 5 rows affected (0.028 sec)
+2. create Table riders_with_more_than_5_rides AS select RideID,DriverID,RiderID,Fare,Rating,DistanceKM, COUNT(*) AS RideCount From Rides Group By RiderID Having Count(*)>5;
+Query OK, 0 rows affected (0.027 sec)
+3.
