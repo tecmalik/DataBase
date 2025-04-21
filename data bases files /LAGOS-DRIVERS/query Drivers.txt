@@ -2,4 +2,8 @@
 Query OK, 5 rows affected (0.028 sec)
 2. create Table riders_with_more_than_5_rides AS select RideID,DriverID,RiderID,Fare,Rating,DistanceKM, COUNT(*) AS RideCount From Rides Group By RiderID Having Count(*)>5;
 Query OK, 0 rows affected (0.027 sec)
-3.
+3.CREATE TABLE IF NOT EXISTS Area_With_Most_Rides AS
+SELECT R.City, COUNT(Ri.RideID) AS RideCount FROM Riders RJOIN Rides Ri ON R.RiderID = Ri.RiderID
+GROUP BY R.CityORDER BY RideCount DESC LIMIT 1;
+4. CREATE TABLE IF NOT EXISTS Total_Revenue_Last_Month AS SELECT SUM(p.Amount) AS TotalRevenue FROM Payments p
+JOIN Rides Ri ON p.RideID = Ri.RideID;
